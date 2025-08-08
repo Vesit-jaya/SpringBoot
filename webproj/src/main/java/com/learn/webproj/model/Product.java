@@ -1,8 +1,14 @@
 package com.learn.webproj.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import org.springframework.stereotype.Component;
 
+@Component
+@Entity
 public class Product {
 
+    @Id
     private int productID;
     private String productName;
     private int price;
@@ -11,6 +17,10 @@ public class Product {
         this.productID = productID;
         this.productName = productName;
         this.price = price;
+    }
+
+    public Product() {
+
     }
 
     public String getProductName() {
@@ -37,5 +47,12 @@ public class Product {
         this.price = price;
     }
 
-
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productID=" + productID +
+                ", productName='" + productName + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
